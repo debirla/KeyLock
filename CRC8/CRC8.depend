@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1546420614 source:f:\smartlock\crc8\main.c
+	<stdio.h>
+	<stdlib.h>
+
