@@ -1,0 +1,1410 @@
+
+
+Microchip Technology PIC LITE Macro Assembler V1.45 build -152302408 
+                                                                                               Thu Jan 24 15:38:29 2019
+
+Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
+     1                           	processor	10LF322
+     2                           	opt	pw 120
+     3                           	opt	lm
+     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     5                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+     6                           	psect	clrtext,global,class=CODE,delta=2
+     7                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+     8                           	psect	maintext,global,class=CODE,split=1,delta=2
+     9                           	psect	text1,local,class=CODE,merge=1,delta=2
+    10                           	psect	text2,local,class=CODE,merge=1,delta=2
+    11                           	psect	text3,local,class=CODE,merge=1,delta=2
+    12                           	dabs	1,0x7E,2
+    13  0000                     
+    14                           ; Version 1.45
+    15                           ; Generated 16/11/2017 GMT
+    16                           ; 
+    17                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    18                           ; All rights reserved.
+    19                           ; 
+    20                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    21                           ; 
+    22                           ; Redistribution and use in source and binary forms, with or without modification, are
+    23                           ; permitted provided that the following conditions are met:
+    24                           ; 
+    25                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    26                           ;        conditions and the following disclaimer.
+    27                           ; 
+    28                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    29                           ;        of conditions and the following disclaimer in the documentation and/or other
+    30                           ;        materials provided with the distribution.
+    31                           ; 
+    32                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    33                           ;        software without specific prior written permission.
+    34                           ; 
+    35                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    36                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    37                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    38                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    39                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    40                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    41                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    42                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    43                           ; 
+    44                           ; 
+    45                           ; Code-generator required, PIC10LF322 Definitions
+    46                           ; 
+    47                           ; SFR Addresses
+    48  0000                     	;# 
+    49  0001                     	;# 
+    50  0002                     	;# 
+    51  0003                     	;# 
+    52  0004                     	;# 
+    53  0005                     	;# 
+    54  0006                     	;# 
+    55  0007                     	;# 
+    56  0008                     	;# 
+    57  0009                     	;# 
+    58  000A                     	;# 
+    59  000B                     	;# 
+    60  000C                     	;# 
+    61  000D                     	;# 
+    62  000E                     	;# 
+    63  000F                     	;# 
+    64  0010                     	;# 
+    65  0011                     	;# 
+    66  0012                     	;# 
+    67  0013                     	;# 
+    68  0014                     	;# 
+    69  0015                     	;# 
+    70  0016                     	;# 
+    71  0016                     	;# 
+    72  0017                     	;# 
+    73  0018                     	;# 
+    74  0019                     	;# 
+    75  0019                     	;# 
+    76  001A                     	;# 
+    77  001B                     	;# 
+    78  001C                     	;# 
+    79  001D                     	;# 
+    80  001E                     	;# 
+    81  001F                     	;# 
+    82  0020                     	;# 
+    83  0020                     	;# 
+    84  0021                     	;# 
+    85  0022                     	;# 
+    86  0022                     	;# 
+    87  0023                     	;# 
+    88  0024                     	;# 
+    89  0025                     	;# 
+    90  0026                     	;# 
+    91  0027                     	;# 
+    92  0027                     	;# 
+    93  0028                     	;# 
+    94  0029                     	;# 
+    95  002A                     	;# 
+    96  002A                     	;# 
+    97  002B                     	;# 
+    98  002C                     	;# 
+    99  002D                     	;# 
+   100  002E                     	;# 
+   101  0030                     	;# 
+   102  0031                     	;# 
+   103  0032                     	;# 
+   104  0033                     	;# 
+   105  0034                     	;# 
+   106  0035                     	;# 
+   107  0036                     	;# 
+   108  0037                     	;# 
+   109  0038                     	;# 
+   110  0039                     	;# 
+   111  003A                     	;# 
+   112  003B                     	;# 
+   113  003C                     	;# 
+   114  003D                     	;# 
+   115  003E                     	;# 
+   116  003F                     	;# 
+   117  0000                     	;# 
+   118  0001                     	;# 
+   119  0002                     	;# 
+   120  0003                     	;# 
+   121  0004                     	;# 
+   122  0005                     	;# 
+   123  0006                     	;# 
+   124  0007                     	;# 
+   125  0008                     	;# 
+   126  0009                     	;# 
+   127  000A                     	;# 
+   128  000B                     	;# 
+   129  000C                     	;# 
+   130  000D                     	;# 
+   131  000E                     	;# 
+   132  000F                     	;# 
+   133  0010                     	;# 
+   134  0011                     	;# 
+   135  0012                     	;# 
+   136  0013                     	;# 
+   137  0014                     	;# 
+   138  0015                     	;# 
+   139  0016                     	;# 
+   140  0016                     	;# 
+   141  0017                     	;# 
+   142  0018                     	;# 
+   143  0019                     	;# 
+   144  0019                     	;# 
+   145  001A                     	;# 
+   146  001B                     	;# 
+   147  001C                     	;# 
+   148  001D                     	;# 
+   149  001E                     	;# 
+   150  001F                     	;# 
+   151  0020                     	;# 
+   152  0020                     	;# 
+   153  0021                     	;# 
+   154  0022                     	;# 
+   155  0022                     	;# 
+   156  0023                     	;# 
+   157  0024                     	;# 
+   158  0025                     	;# 
+   159  0026                     	;# 
+   160  0027                     	;# 
+   161  0027                     	;# 
+   162  0028                     	;# 
+   163  0029                     	;# 
+   164  002A                     	;# 
+   165  002A                     	;# 
+   166  002B                     	;# 
+   167  002C                     	;# 
+   168  002D                     	;# 
+   169  002E                     	;# 
+   170  0030                     	;# 
+   171  0031                     	;# 
+   172  0032                     	;# 
+   173  0033                     	;# 
+   174  0034                     	;# 
+   175  0035                     	;# 
+   176  0036                     	;# 
+   177  0037                     	;# 
+   178  0038                     	;# 
+   179  0039                     	;# 
+   180  003A                     	;# 
+   181  003B                     	;# 
+   182  003C                     	;# 
+   183  003D                     	;# 
+   184  003E                     	;# 
+   185  003F                     	;# 
+   186  0000                     	;# 
+   187  0001                     	;# 
+   188  0002                     	;# 
+   189  0003                     	;# 
+   190  0004                     	;# 
+   191  0005                     	;# 
+   192  0006                     	;# 
+   193  0007                     	;# 
+   194  0008                     	;# 
+   195  0009                     	;# 
+   196  000A                     	;# 
+   197  000B                     	;# 
+   198  000C                     	;# 
+   199  000D                     	;# 
+   200  000E                     	;# 
+   201  000F                     	;# 
+   202  0010                     	;# 
+   203  0011                     	;# 
+   204  0012                     	;# 
+   205  0013                     	;# 
+   206  0014                     	;# 
+   207  0015                     	;# 
+   208  0016                     	;# 
+   209  0016                     	;# 
+   210  0017                     	;# 
+   211  0018                     	;# 
+   212  0019                     	;# 
+   213  0019                     	;# 
+   214  001A                     	;# 
+   215  001B                     	;# 
+   216  001C                     	;# 
+   217  001D                     	;# 
+   218  001E                     	;# 
+   219  001F                     	;# 
+   220  0020                     	;# 
+   221  0020                     	;# 
+   222  0021                     	;# 
+   223  0022                     	;# 
+   224  0022                     	;# 
+   225  0023                     	;# 
+   226  0024                     	;# 
+   227  0025                     	;# 
+   228  0026                     	;# 
+   229  0027                     	;# 
+   230  0027                     	;# 
+   231  0028                     	;# 
+   232  0029                     	;# 
+   233  002A                     	;# 
+   234  002A                     	;# 
+   235  002B                     	;# 
+   236  002C                     	;# 
+   237  002D                     	;# 
+   238  002E                     	;# 
+   239  0030                     	;# 
+   240  0031                     	;# 
+   241  0032                     	;# 
+   242  0033                     	;# 
+   243  0034                     	;# 
+   244  0035                     	;# 
+   245  0036                     	;# 
+   246  0037                     	;# 
+   247  0038                     	;# 
+   248  0039                     	;# 
+   249  003A                     	;# 
+   250  003B                     	;# 
+   251  003C                     	;# 
+   252  003D                     	;# 
+   253  003E                     	;# 
+   254  003F                     	;# 
+   255  0030                     _WDTCON	set	48
+   256  0007                     _LATAbits	set	7
+   257  0006                     _TRISAbits	set	6
+   258  001F                     _ADCON	set	31
+   259  001D                     _FVRCON	set	29
+   260  0009                     _WPUA	set	9
+   261  0008                     _ANSELA	set	8
+   262  0010                     _OSCCON	set	16
+   263  000B                     _INTCONbits	set	11
+   264                           
+   265                           ; #config settings
+   266  0000                     
+   267                           	psect	cinit
+   268  01FA                     start_initialization:	
+   269  01FA                     __initialization:	
+   270                           
+   271                           ; Clear objects allocated to BANK0
+   272  01FA  304E               	movlw	low __pbssBANK0
+   273  01FB  0084               	movwf	4
+   274  01FC  305A               	movlw	low (__pbssBANK0+12)
+   275  01FD  2018               	fcall	clear_ram0
+   276  01FE                     end_of_initialization:	
+   277                           ;End of C runtime variable initialization code
+   278                           
+   279  01FE                     __end_of__initialization:	
+   280  01FE  0183               	clrf	3
+   281  01FF  28AF               	ljmp	_main	;jump to C main() function
+   282                           
+   283                           	psect	bssBANK0
+   284  004E                     __pbssBANK0:	
+   285  004E                     _gKeyCodeManchester:	
+   286  004E                     	ds	8
+   287  0056                     _gKeyCode:	
+   288  0056                     	ds	4
+   289                           
+   290                           	psect	clrtext
+   291  0018                     clear_ram0:	
+   292                           ;	Called with FSR containing the base address, and
+   293                           ;	W with the last address+1
+   294                           
+   295  0018  0064               	clrwdt	;clear the watchdog before getting into this loop
+   296  0019                     clrloop0:	
+   297  0019  0180               	clrf	0	;clear RAM location pointed to by FSR
+   298  001A  0A84               	incf	4,f	;increment pointer
+   299  001B  0604               	xorwf	4,w	;XOR with final address
+   300  001C  1903               	btfsc	3,2	;have we reached the end yet?
+   301  001D  3400               	retlw	0	;all done for this memory range, return
+   302  001E  0604               	xorwf	4,w	;XOR again to restore value
+   303  001F  2819               	goto	clrloop0	;do the next byte
+   304                           
+   305                           	psect	cstackBANK0
+   306  0040                     __pcstackBANK0:	
+   307  0040                     ?_Txmt_Initialize:	
+   308  0040                     ??_Txmt_Initialize:	
+   309                           ; 1 bytes @ 0x0
+   310                           
+   311  0040                     ?_constructTxBytesOfManchesterPulses:	
+   312                           ; 1 bytes @ 0x0
+   313                           
+   314  0040                     ??_constructTxBytesOfManchesterPulses:	
+   315                           ; 1 bytes @ 0x0
+   316                           
+   317  0040                     ?_Txmt_Break:	
+   318                           ; 1 bytes @ 0x0
+   319                           
+   320  0040                     ??_Txmt_Break:	
+   321                           ; 1 bytes @ 0x0
+   322                           
+   323  0040                     ?_main:	
+   324                           ; 1 bytes @ 0x0
+   325                           
+   326                           
+   327                           ; 1 bytes @ 0x0
+   328  0040                     	ds	1
+   329  0041                     constructTxBytesOfManchesterPulses@bitIndex:	
+   330                           
+   331                           ; 1 bytes @ 0x1
+   332  0041                     	ds	1
+   333  0042                     constructTxBytesOfManchesterPulses@codeBitByteIndex:	
+   334                           
+   335                           ; 1 bytes @ 0x2
+   336  0042                     	ds	1
+   337  0043                     ??_main:	
+   338                           
+   339                           ; 1 bytes @ 0x3
+   340  0043                     	ds	1
+   341  0044                     main@tempManByte:	
+   342                           
+   343                           ; 8 bytes @ 0x4
+   344  0044                     	ds	8
+   345  004C                     main@txmtManCodeByteIndex:	
+   346                           
+   347                           ; 1 bytes @ 0xC
+   348  004C                     	ds	1
+   349  004D                     main@txmtManCodeBitIndex:	
+   350                           
+   351                           ; 1 bytes @ 0xD
+   352  004D                     	ds	1
+   353                           
+   354                           	psect	maintext
+   355  00AF                     __pmaintext:	
+   356 ;;
+   357 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   358 ;;
+   359 ;; *************** function _main *****************
+   360 ;; Defined at:
+   361 ;;		line 17 in file "main.c"
+   362 ;; Parameters:    Size  Location     Type
+   363 ;;		None
+   364 ;; Auto vars:     Size  Location     Type
+   365 ;;  tempManByte     8    4[BANK0 ] unsigned char [8]
+   366 ;;  txmtManCodeB    1   13[BANK0 ] unsigned char 
+   367 ;;  txmtManCodeB    1   12[BANK0 ] unsigned char 
+   368 ;; Return value:  Size  Location     Type
+   369 ;;                  1    wreg      void 
+   370 ;; Registers used:
+   371 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   372 ;; Tracked objects:
+   373 ;;		On entry : B00/0
+   374 ;;		On exit  : 0/0
+   375 ;;		Unchanged: 0/0
+   376 ;; Data sizes:     COMMON   BANK0
+   377 ;;      Params:         0       0
+   378 ;;      Locals:         0      10
+   379 ;;      Temps:          0       1
+   380 ;;      Totals:         0      11
+   381 ;;Total ram usage:       11 bytes
+   382 ;; Hardware stack levels required when called:    1
+   383 ;; This function calls:
+   384 ;;		_Txmt_Break
+   385 ;;		_Txmt_Initialize
+   386 ;;		_constructTxBytesOfManchesterPulses
+   387 ;; This function is called by:
+   388 ;;		Startup code after reset
+   389 ;; This function uses a non-reentrant model
+   390 ;;
+   391                           
+   392                           
+   393                           ;psect for function _main
+   394  00AF                     _main:	
+   395                           
+   396                           ;main.c: 20: uint8_t txmtManCodeBitIndex, txmtManCodeByteIndex, tempManByte[((4u)*(2u))]
+      +                          ;
+   397                           ;main.c: 23: (INTCONbits.GIE = 0);
+   398                           
+   399                           ;incstack = 0
+   400                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   401  00AF  138B               	bcf	11,7	;volatile
+   402                           
+   403                           ;main.c: 26: (OSCCON = 0x00);
+   404  00B0  0190               	clrf	16	;volatile
+   405                           
+   406                           ;main.c: 29: ANSELA = 0x00;
+   407  00B1  0188               	clrf	8	;volatile
+   408                           
+   409                           ;main.c: 30: WPUA = 0x00;
+   410  00B2  0189               	clrf	9	;volatile
+   411                           
+   412                           ;main.c: 31: FVRCON = 0x00;
+   413  00B3  019D               	clrf	29	;volatile
+   414                           
+   415                           ;main.c: 32: ADCON = 0x00;
+   416  00B4  019F               	clrf	31	;volatile
+   417                           
+   418                           ;main.c: 35: Txmt_Initialize();
+   419  00B5  2020               	fcall	_Txmt_Initialize
+   420                           
+   421                           ;main.c: 37: TRISAbits.TRISA0 = 0;
+   422  00B6  1006               	bcf	6,0	;volatile
+   423                           
+   424                           ;main.c: 38: TRISAbits.TRISA1 = 0;
+   425  00B7  1086               	bcf	6,1	;volatile
+   426                           
+   427                           ;main.c: 39: TRISAbits.TRISA2 = 0;
+   428  00B8  1106               	bcf	6,2	;volatile
+   429                           
+   430                           ;main.c: 40: LATAbits.LATA0 = 0;
+   431  00B9  1007               	bcf	7,0	;volatile
+   432                           
+   433                           ;main.c: 41: (LATAbits.LATA1 = 0);
+   434  00BA  1087               	bcf	7,1	;volatile
+   435                           
+   436                           ;main.c: 42: LATAbits.LATA2 = 0;
+   437  00BB  1107               	bcf	7,2	;volatile
+   438                           
+   439                           ;main.c: 44: constructTxBytesOfManchesterPulses();
+   440  00BC  2038               	fcall	_constructTxBytesOfManchesterPulses
+   441                           
+   442                           ;main.c: 47: (WDTCON = 0x1B);
+   443  00BD  301B               	movlw	27
+   444  00BE  00B0               	movwf	48	;volatile
+   445                           
+   446                           ;main.c: 50: _delay((unsigned long)((50)*((31000u)/4000.0)));
+   447  00BF  3080               	movlw	128
+   448  00C0  00C3               	movwf	??_main
+   449  00C1                     u617:	
+   450  00C1  0BC3               	decfsz	??_main,f
+   451  00C2  28C1               	goto	u617
+   452  00C3  28C4               	nop2
+   453  00C4  0064               	clrwdt	;# 
+   454                           
+   455                           ;main.c: 56: (LATAbits.LATA1 = 0);
+   456  00C5  1087               	bcf	7,1	;volatile
+   457                           
+   458                           ;main.c: 59: _delay((unsigned long)((100)*((31000u)/4000.0)));
+   459  00C6  309A               	movlw	154
+   460  00C7  00C3               	movwf	??_main
+   461  00C8                     u627:	
+   462  00C8  28C9               	nop2
+   463  00C9  0BC3               	decfsz	??_main,f
+   464  00CA  28C8               	goto	u627
+   465  00CB  28CC               	nop2
+   466  00CC  28CD               	nop2
+   467  00CD                     l39:	
+   468                           ;main.c: 62: for(;;)
+   469                           
+   470  00CD  0064               	clrwdt	;# 
+   471                           
+   472                           ;main.c: 68: _delay((unsigned long)((100)*((31000u)/4000.0)));
+   473  00CE  309A               	movlw	154
+   474  00CF  00C3               	movwf	??_main
+   475  00D0                     u637:	
+   476  00D0  28D1               	nop2
+   477  00D1  0BC3               	decfsz	??_main,f
+   478  00D2  28D0               	goto	u637
+   479  00D3  28D4               	nop2
+   480  00D4  28D5               	nop2
+   481                           
+   482                           ;main.c: 71: for(txmtManCodeByteIndex = 0; txmtManCodeByteIndex < ((4u)*(2u)); txmtManCo
+      +                          deByteIndex++)
+   483  00D5  01CC               	clrf	main@txmtManCodeByteIndex
+   484  00D6  3008               	movlw	8
+   485  00D7  024C               	subwf	main@txmtManCodeByteIndex,w
+   486  00D8  1803               	btfsc	3,0
+   487  00D9  28EC               	goto	l41
+   488  00DA                     l798:	
+   489                           
+   490                           ;main.c: 72: {
+   491                           ;main.c: 73: tempManByte[txmtManCodeByteIndex] = gKeyCodeManchester[txmtManCodeByteIndex
+      +                          ];
+   492  00DA  084C               	movf	main@txmtManCodeByteIndex,w
+   493  00DB  3E4E               	addlw	(low (_gKeyCodeManchester| 0))& (0+255)
+   494  00DC  0084               	movwf	4
+   495  00DD  0800               	movf	0,w
+   496  00DE  00C3               	movwf	??_main
+   497  00DF  084C               	movf	main@txmtManCodeByteIndex,w
+   498  00E0  3E44               	addlw	(low (main@tempManByte| 0))& (0+255)
+   499  00E1  0084               	movwf	4
+   500  00E2  0843               	movf	??_main,w
+   501  00E3  0080               	movwf	0
+   502  00E4  3001               	movlw	1
+   503  00E5  00C3               	movwf	??_main
+   504  00E6  0843               	movf	??_main,w
+   505  00E7  07CC               	addwf	main@txmtManCodeByteIndex,f
+   506  00E8  3008               	movlw	8
+   507  00E9  024C               	subwf	main@txmtManCodeByteIndex,w
+   508  00EA  1C03               	skipc
+   509  00EB  28DA               	goto	l798
+   510  00EC                     l41:	
+   511                           
+   512                           ;main.c: 74: }
+   513                           ;main.c: 77: LATAbits.LATA1 = 0x01;
+   514  00EC  1487               	bsf	7,1	;volatile
+   515                           
+   516                           ;main.c: 79: _delay((unsigned long)((30)*((31000u)/4000.0)));
+   517  00ED  304D               	movlw	77
+   518  00EE  00C3               	movwf	??_main
+   519  00EF                     u647:	
+   520  00EF  0BC3               	decfsz	??_main,f
+   521  00F0  28EF               	goto	u647
+   522                           
+   523                           ;main.c: 80: (LATAbits.LATA1 = 0);
+   524  00F1  1087               	bcf	7,1	;volatile
+   525                           
+   526                           ;main.c: 81: _delay((unsigned long)((3)*((31000u)/4000.0)));
+   527  00F2  3007               	movlw	7
+   528  00F3  00C3               	movwf	??_main
+   529  00F4                     u657:	
+   530  00F4  0BC3               	decfsz	??_main,f
+   531  00F5  28F4               	goto	u657
+   532  00F6  0000               	nop
+   533                           
+   534                           ;main.c: 84: for(txmtManCodeBitIndex = 0; txmtManCodeBitIndex <= 3; txmtManCodeBitIndex+
+      +                          +)
+   535  00F7  01CD               	clrf	main@txmtManCodeBitIndex
+   536  00F8  3004               	movlw	4
+   537  00F9  024D               	subwf	main@txmtManCodeBitIndex,w
+   538  00FA  1803               	btfsc	3,0
+   539  00FB  290F               	goto	l822
+   540  00FC                     l42:	
+   541                           
+   542                           ;main.c: 85: {
+   543                           ;main.c: 86: LATAbits.LATA1 = 0x01;
+   544  00FC  1487               	bsf	7,1	;volatile
+   545                           
+   546                           ;main.c: 87: _delay((unsigned long)((7)*((31000u)/4000.0)));
+   547  00FD  3011               	movlw	17
+   548  00FE  00C3               	movwf	??_main
+   549  00FF                     u667:	
+   550  00FF  0BC3               	decfsz	??_main,f
+   551  0100  28FF               	goto	u667
+   552  0101  2902               	nop2
+   553                           
+   554                           ;main.c: 88: LATAbits.LATA1 = 0x00;
+   555  0102  1087               	bcf	7,1	;volatile
+   556                           
+   557                           ;main.c: 89: _delay((unsigned long)((4)*((31000u)/4000.0)));
+   558  0103  300A               	movlw	10
+   559  0104  00C3               	movwf	??_main
+   560  0105                     u677:	
+   561  0105  0BC3               	decfsz	??_main,f
+   562  0106  2905               	goto	u677
+   563  0107  3001               	movlw	1
+   564  0108  00C3               	movwf	??_main
+   565  0109  0843               	movf	??_main,w
+   566  010A  07CD               	addwf	main@txmtManCodeBitIndex,f
+   567  010B  3004               	movlw	4
+   568  010C  024D               	subwf	main@txmtManCodeBitIndex,w
+   569  010D  1C03               	skipc
+   570  010E  28FC               	goto	l42
+   571  010F                     l822:	
+   572                           
+   573                           ;main.c: 90: }
+   574                           ;main.c: 92: Txmt_Break();
+   575  010F  202B               	fcall	_Txmt_Break
+   576                           
+   577                           ;main.c: 97: for(txmtManCodeBitIndex = 0; txmtManCodeBitIndex <= 7; txmtManCodeBitIndex+
+      +                          +)
+   578  0110  01CD               	clrf	main@txmtManCodeBitIndex
+   579  0111  3008               	movlw	8
+   580  0112  024D               	subwf	main@txmtManCodeBitIndex,w
+   581  0113  1803               	btfsc	3,0
+   582  0114  292C               	goto	l838
+   583  0115                     l830:	
+   584                           
+   585                           ;main.c: 98: {
+   586                           ;main.c: 100: LATAbits.LATA1 = (uint8_t)(tempManByte[0] & 0x01);
+   587  0115  0844               	movf	main@tempManByte,w
+   588  0116  3901               	andlw	1
+   589  0117  00C3               	movwf	??_main
+   590  0118  0DC3               	rlf	??_main,f
+   591  0119  0807               	movf	7,w	;volatile
+   592  011A  0643               	xorwf	??_main,w
+   593  011B  39FD               	andlw	-3
+   594  011C  0643               	xorwf	??_main,w
+   595  011D  0087               	movwf	7	;volatile
+   596                           
+   597                           ;main.c: 101: tempManByte[0] >>= 1;
+   598  011E  1003               	clrc
+   599  011F  0CC4               	rrf	main@tempManByte,f
+   600                           
+   601                           ;main.c: 102: (_delay(8u));
+   602  0120  2921               	nop2	;2 cycle nop
+   603  0121  2922               	nop2	;2 cycle nop
+   604  0122  2923               	nop2	;2 cycle nop
+   605  0123  2924               	nop2	;2 cycle nop
+   606  0124  3001               	movlw	1
+   607  0125  00C3               	movwf	??_main
+   608  0126  0843               	movf	??_main,w
+   609  0127  07CD               	addwf	main@txmtManCodeBitIndex,f
+   610  0128  3008               	movlw	8
+   611  0129  024D               	subwf	main@txmtManCodeBitIndex,w
+   612  012A  1C03               	skipc
+   613  012B  2915               	goto	l830
+   614  012C                     l838:	
+   615                           
+   616                           ;main.c: 103: }
+   617                           ;main.c: 105: for(txmtManCodeBitIndex = 0; txmtManCodeBitIndex <= 7; txmtManCodeBitIndex
+      +                          ++)
+   618  012C  01CD               	clrf	main@txmtManCodeBitIndex
+   619  012D  3008               	movlw	8
+   620  012E  024D               	subwf	main@txmtManCodeBitIndex,w
+   621  012F  1803               	btfsc	3,0
+   622  0130  2948               	goto	l852
+   623  0131                     l844:	
+   624                           
+   625                           ;main.c: 106: {
+   626                           ;main.c: 108: LATAbits.LATA1 = (uint8_t)(tempManByte[1] & 0x01);
+   627  0131  0845               	movf	main@tempManByte+1,w
+   628  0132  3901               	andlw	1
+   629  0133  00C3               	movwf	??_main
+   630  0134  0DC3               	rlf	??_main,f
+   631  0135  0807               	movf	7,w	;volatile
+   632  0136  0643               	xorwf	??_main,w
+   633  0137  39FD               	andlw	-3
+   634  0138  0643               	xorwf	??_main,w
+   635  0139  0087               	movwf	7	;volatile
+   636                           
+   637                           ;main.c: 109: tempManByte[1] >>= 1;
+   638  013A  1003               	clrc
+   639  013B  0CC5               	rrf	main@tempManByte+1,f
+   640                           
+   641                           ;main.c: 110: (_delay(8u));
+   642  013C  293D               	nop2	;2 cycle nop
+   643  013D  293E               	nop2	;2 cycle nop
+   644  013E  293F               	nop2	;2 cycle nop
+   645  013F  2940               	nop2	;2 cycle nop
+   646  0140  3001               	movlw	1
+   647  0141  00C3               	movwf	??_main
+   648  0142  0843               	movf	??_main,w
+   649  0143  07CD               	addwf	main@txmtManCodeBitIndex,f
+   650  0144  3008               	movlw	8
+   651  0145  024D               	subwf	main@txmtManCodeBitIndex,w
+   652  0146  1C03               	skipc
+   653  0147  2931               	goto	l844
+   654  0148                     l852:	
+   655                           
+   656                           ;main.c: 111: }
+   657                           ;main.c: 113: Txmt_Break();
+   658  0148  202B               	fcall	_Txmt_Break
+   659                           
+   660                           ;main.c: 115: for(txmtManCodeBitIndex = 0; txmtManCodeBitIndex <= 7; txmtManCodeBitIndex
+      +                          ++)
+   661  0149  01CD               	clrf	main@txmtManCodeBitIndex
+   662  014A  3008               	movlw	8
+   663  014B  024D               	subwf	main@txmtManCodeBitIndex,w
+   664  014C  1803               	btfsc	3,0
+   665  014D  2965               	goto	l868
+   666  014E                     l860:	
+   667                           
+   668                           ;main.c: 116: {
+   669                           ;main.c: 118: LATAbits.LATA1 = (uint8_t)(tempManByte[2] & 0x01);
+   670  014E  0846               	movf	main@tempManByte+2,w
+   671  014F  3901               	andlw	1
+   672  0150  00C3               	movwf	??_main
+   673  0151  0DC3               	rlf	??_main,f
+   674  0152  0807               	movf	7,w	;volatile
+   675  0153  0643               	xorwf	??_main,w
+   676  0154  39FD               	andlw	-3
+   677  0155  0643               	xorwf	??_main,w
+   678  0156  0087               	movwf	7	;volatile
+   679                           
+   680                           ;main.c: 119: tempManByte[2] >>= 1;
+   681  0157  1003               	clrc
+   682  0158  0CC6               	rrf	main@tempManByte+2,f
+   683                           
+   684                           ;main.c: 120: (_delay(8u));
+   685  0159  295A               	nop2	;2 cycle nop
+   686  015A  295B               	nop2	;2 cycle nop
+   687  015B  295C               	nop2	;2 cycle nop
+   688  015C  295D               	nop2	;2 cycle nop
+   689  015D  3001               	movlw	1
+   690  015E  00C3               	movwf	??_main
+   691  015F  0843               	movf	??_main,w
+   692  0160  07CD               	addwf	main@txmtManCodeBitIndex,f
+   693  0161  3008               	movlw	8
+   694  0162  024D               	subwf	main@txmtManCodeBitIndex,w
+   695  0163  1C03               	skipc
+   696  0164  294E               	goto	l860
+   697  0165                     l868:	
+   698                           
+   699                           ;main.c: 121: }
+   700                           ;main.c: 123: for(txmtManCodeBitIndex = 0; txmtManCodeBitIndex <= 7; txmtManCodeBitIndex
+      +                          ++)
+   701  0165  01CD               	clrf	main@txmtManCodeBitIndex
+   702  0166  3008               	movlw	8
+   703  0167  024D               	subwf	main@txmtManCodeBitIndex,w
+   704  0168  1803               	btfsc	3,0
+   705  0169  2981               	goto	l882
+   706  016A                     l874:	
+   707                           
+   708                           ;main.c: 124: {
+   709                           ;main.c: 126: LATAbits.LATA1 = (uint8_t)(tempManByte[3] & 0x01);
+   710  016A  0847               	movf	main@tempManByte+3,w
+   711  016B  3901               	andlw	1
+   712  016C  00C3               	movwf	??_main
+   713  016D  0DC3               	rlf	??_main,f
+   714  016E  0807               	movf	7,w	;volatile
+   715  016F  0643               	xorwf	??_main,w
+   716  0170  39FD               	andlw	-3
+   717  0171  0643               	xorwf	??_main,w
+   718  0172  0087               	movwf	7	;volatile
+   719                           
+   720                           ;main.c: 127: tempManByte[3] >>= 1;
+   721  0173  1003               	clrc
+   722  0174  0CC7               	rrf	main@tempManByte+3,f
+   723                           
+   724                           ;main.c: 128: (_delay(8u));
+   725  0175  2976               	nop2	;2 cycle nop
+   726  0176  2977               	nop2	;2 cycle nop
+   727  0177  2978               	nop2	;2 cycle nop
+   728  0178  2979               	nop2	;2 cycle nop
+   729  0179  3001               	movlw	1
+   730  017A  00C3               	movwf	??_main
+   731  017B  0843               	movf	??_main,w
+   732  017C  07CD               	addwf	main@txmtManCodeBitIndex,f
+   733  017D  3008               	movlw	8
+   734  017E  024D               	subwf	main@txmtManCodeBitIndex,w
+   735  017F  1C03               	skipc
+   736  0180  296A               	goto	l874
+   737  0181                     l882:	
+   738                           
+   739                           ;main.c: 129: }
+   740                           ;main.c: 131: Txmt_Break();
+   741  0181  202B               	fcall	_Txmt_Break
+   742                           
+   743                           ;main.c: 133: for(txmtManCodeBitIndex = 0; txmtManCodeBitIndex <= 7; txmtManCodeBitIndex
+      +                          ++)
+   744  0182  01CD               	clrf	main@txmtManCodeBitIndex
+   745  0183  3008               	movlw	8
+   746  0184  024D               	subwf	main@txmtManCodeBitIndex,w
+   747  0185  1803               	btfsc	3,0
+   748  0186  299E               	goto	l898
+   749  0187                     l890:	
+   750                           
+   751                           ;main.c: 134: {
+   752                           ;main.c: 136: LATAbits.LATA1 = (uint8_t)(tempManByte[4] & 0x01);
+   753  0187  0848               	movf	main@tempManByte+4,w
+   754  0188  3901               	andlw	1
+   755  0189  00C3               	movwf	??_main
+   756  018A  0DC3               	rlf	??_main,f
+   757  018B  0807               	movf	7,w	;volatile
+   758  018C  0643               	xorwf	??_main,w
+   759  018D  39FD               	andlw	-3
+   760  018E  0643               	xorwf	??_main,w
+   761  018F  0087               	movwf	7	;volatile
+   762                           
+   763                           ;main.c: 137: tempManByte[4] >>= 1;
+   764  0190  1003               	clrc
+   765  0191  0CC8               	rrf	main@tempManByte+4,f
+   766                           
+   767                           ;main.c: 138: (_delay(8u));
+   768  0192  2993               	nop2	;2 cycle nop
+   769  0193  2994               	nop2	;2 cycle nop
+   770  0194  2995               	nop2	;2 cycle nop
+   771  0195  2996               	nop2	;2 cycle nop
+   772  0196  3001               	movlw	1
+   773  0197  00C3               	movwf	??_main
+   774  0198  0843               	movf	??_main,w
+   775  0199  07CD               	addwf	main@txmtManCodeBitIndex,f
+   776  019A  3008               	movlw	8
+   777  019B  024D               	subwf	main@txmtManCodeBitIndex,w
+   778  019C  1C03               	skipc
+   779  019D  2987               	goto	l890
+   780  019E                     l898:	
+   781                           
+   782                           ;main.c: 139: }
+   783                           ;main.c: 141: for(txmtManCodeBitIndex = 0; txmtManCodeBitIndex <= 7; txmtManCodeBitIndex
+      +                          ++)
+   784  019E  01CD               	clrf	main@txmtManCodeBitIndex
+   785  019F  3008               	movlw	8
+   786  01A0  024D               	subwf	main@txmtManCodeBitIndex,w
+   787  01A1  1803               	btfsc	3,0
+   788  01A2  29BA               	goto	l912
+   789  01A3                     l904:	
+   790                           
+   791                           ;main.c: 142: {
+   792                           ;main.c: 144: LATAbits.LATA1 = (uint8_t)(tempManByte[5] & 0x01);
+   793  01A3  0849               	movf	main@tempManByte+5,w
+   794  01A4  3901               	andlw	1
+   795  01A5  00C3               	movwf	??_main
+   796  01A6  0DC3               	rlf	??_main,f
+   797  01A7  0807               	movf	7,w	;volatile
+   798  01A8  0643               	xorwf	??_main,w
+   799  01A9  39FD               	andlw	-3
+   800  01AA  0643               	xorwf	??_main,w
+   801  01AB  0087               	movwf	7	;volatile
+   802                           
+   803                           ;main.c: 145: tempManByte[5] >>= 1;
+   804  01AC  1003               	clrc
+   805  01AD  0CC9               	rrf	main@tempManByte+5,f
+   806                           
+   807                           ;main.c: 146: (_delay(8u));
+   808  01AE  29AF               	nop2	;2 cycle nop
+   809  01AF  29B0               	nop2	;2 cycle nop
+   810  01B0  29B1               	nop2	;2 cycle nop
+   811  01B1  29B2               	nop2	;2 cycle nop
+   812  01B2  3001               	movlw	1
+   813  01B3  00C3               	movwf	??_main
+   814  01B4  0843               	movf	??_main,w
+   815  01B5  07CD               	addwf	main@txmtManCodeBitIndex,f
+   816  01B6  3008               	movlw	8
+   817  01B7  024D               	subwf	main@txmtManCodeBitIndex,w
+   818  01B8  1C03               	skipc
+   819  01B9  29A3               	goto	l904
+   820  01BA                     l912:	
+   821                           
+   822                           ;main.c: 147: }
+   823                           ;main.c: 149: Txmt_Break();
+   824  01BA  202B               	fcall	_Txmt_Break
+   825                           
+   826                           ;main.c: 151: for(txmtManCodeBitIndex = 0; txmtManCodeBitIndex <= 7; txmtManCodeBitIndex
+      +                          ++)
+   827  01BB  01CD               	clrf	main@txmtManCodeBitIndex
+   828  01BC  3008               	movlw	8
+   829  01BD  024D               	subwf	main@txmtManCodeBitIndex,w
+   830  01BE  1803               	btfsc	3,0
+   831  01BF  29D7               	goto	l928
+   832  01C0                     l920:	
+   833                           
+   834                           ;main.c: 152: {
+   835                           ;main.c: 154: LATAbits.LATA1 = (uint8_t)(tempManByte[6] & 0x01);
+   836  01C0  084A               	movf	main@tempManByte+6,w
+   837  01C1  3901               	andlw	1
+   838  01C2  00C3               	movwf	??_main
+   839  01C3  0DC3               	rlf	??_main,f
+   840  01C4  0807               	movf	7,w	;volatile
+   841  01C5  0643               	xorwf	??_main,w
+   842  01C6  39FD               	andlw	-3
+   843  01C7  0643               	xorwf	??_main,w
+   844  01C8  0087               	movwf	7	;volatile
+   845                           
+   846                           ;main.c: 155: tempManByte[6] >>= 1;
+   847  01C9  1003               	clrc
+   848  01CA  0CCA               	rrf	main@tempManByte+6,f
+   849                           
+   850                           ;main.c: 156: (_delay(8u));
+   851  01CB  29CC               	nop2	;2 cycle nop
+   852  01CC  29CD               	nop2	;2 cycle nop
+   853  01CD  29CE               	nop2	;2 cycle nop
+   854  01CE  29CF               	nop2	;2 cycle nop
+   855  01CF  3001               	movlw	1
+   856  01D0  00C3               	movwf	??_main
+   857  01D1  0843               	movf	??_main,w
+   858  01D2  07CD               	addwf	main@txmtManCodeBitIndex,f
+   859  01D3  3008               	movlw	8
+   860  01D4  024D               	subwf	main@txmtManCodeBitIndex,w
+   861  01D5  1C03               	skipc
+   862  01D6  29C0               	goto	l920
+   863  01D7                     l928:	
+   864                           
+   865                           ;main.c: 157: }
+   866                           ;main.c: 160: for(txmtManCodeBitIndex = 0; txmtManCodeBitIndex <= 7; txmtManCodeBitIndex
+      +                          ++)
+   867  01D7  01CD               	clrf	main@txmtManCodeBitIndex
+   868  01D8  3008               	movlw	8
+   869  01D9  024D               	subwf	main@txmtManCodeBitIndex,w
+   870  01DA  1803               	btfsc	3,0
+   871  01DB  29F3               	goto	l59
+   872  01DC                     l934:	
+   873                           
+   874                           ;main.c: 161: {
+   875                           ;main.c: 163: LATAbits.LATA1 = (uint8_t)(tempManByte[((4u)*(2u)) - 1] & 0x01);
+   876  01DC  084B               	movf	main@tempManByte+7,w
+   877  01DD  3901               	andlw	1
+   878  01DE  00C3               	movwf	??_main
+   879  01DF  0DC3               	rlf	??_main,f
+   880  01E0  0807               	movf	7,w	;volatile
+   881  01E1  0643               	xorwf	??_main,w
+   882  01E2  39FD               	andlw	-3
+   883  01E3  0643               	xorwf	??_main,w
+   884  01E4  0087               	movwf	7	;volatile
+   885                           
+   886                           ;main.c: 164: tempManByte[((4u)*(2u)) - 1] >>= 1;
+   887  01E5  1003               	clrc
+   888  01E6  0CCB               	rrf	main@tempManByte+7,f
+   889                           
+   890                           ;main.c: 165: (_delay(8u));
+   891  01E7  29E8               	nop2	;2 cycle nop
+   892  01E8  29E9               	nop2	;2 cycle nop
+   893  01E9  29EA               	nop2	;2 cycle nop
+   894  01EA  29EB               	nop2	;2 cycle nop
+   895  01EB  3001               	movlw	1
+   896  01EC  00C3               	movwf	??_main
+   897  01ED  0843               	movf	??_main,w
+   898  01EE  07CD               	addwf	main@txmtManCodeBitIndex,f
+   899  01EF  3008               	movlw	8
+   900  01F0  024D               	subwf	main@txmtManCodeBitIndex,w
+   901  01F1  1C03               	skipc
+   902  01F2  29DC               	goto	l934
+   903  01F3                     l59:	
+   904                           
+   905                           ;main.c: 166: }
+   906                           ;main.c: 169: (LATAbits.LATA1 = 0);
+   907  01F3  1087               	bcf	7,1	;volatile
+   908                           
+   909                           ;main.c: 171: _delay((unsigned long)((15)*((31000u)/4000.0)));
+   910  01F4  3026               	movlw	38
+   911  01F5  00C3               	movwf	??_main
+   912  01F6                     u687:	
+   913  01F6  0BC3               	decfsz	??_main,f
+   914  01F7  29F6               	goto	u687
+   915  01F8  0000               	nop
+   916                           
+   917                           ;main.c: 173: }
+   918  01F9  28CD               	goto	l39
+   919  01FA                     __end_of_main:	
+   920                           
+   921                           	psect	text1
+   922  0038                     __ptext1:	
+   923 ;; *************** function _constructTxBytesOfManchesterPulses *****************
+   924 ;; Defined at:
+   925 ;;		line 36 in file "txmit.c"
+   926 ;; Parameters:    Size  Location     Type
+   927 ;;		None
+   928 ;; Auto vars:     Size  Location     Type
+   929 ;;  codeBitByteI    1    2[BANK0 ] unsigned char 
+   930 ;;  bitIndex        1    1[BANK0 ] unsigned char 
+   931 ;; Return value:  Size  Location     Type
+   932 ;;                  1    wreg      void 
+   933 ;; Registers used:
+   934 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   935 ;; Tracked objects:
+   936 ;;		On entry : 0/0
+   937 ;;		On exit  : 0/0
+   938 ;;		Unchanged: 0/0
+   939 ;; Data sizes:     COMMON   BANK0
+   940 ;;      Params:         0       0
+   941 ;;      Locals:         0       2
+   942 ;;      Temps:          0       1
+   943 ;;      Totals:         0       3
+   944 ;;Total ram usage:        3 bytes
+   945 ;; Hardware stack levels used:    1
+   946 ;; This function calls:
+   947 ;;		Nothing
+   948 ;; This function is called by:
+   949 ;;		_main
+   950 ;; This function uses a non-reentrant model
+   951 ;;
+   952                           
+   953                           
+   954                           ;psect for function _constructTxBytesOfManchesterPulses
+   955  0038                     _constructTxBytesOfManchesterPulses:	
+   956                           
+   957                           ;txmit.c: 38: unsigned char codeBitByteIndex, bitIndex;
+   958                           ;txmit.c: 39: for(codeBitByteIndex = 0; codeBitByteIndex <= (4u); codeBitByteIndex++)
+   959                           
+   960                           ;incstack = 0
+   961                           ; Regs used in _constructTxBytesOfManchesterPulses: [wreg-fsr0h+status,2+status,0]
+   962  0038  01C2               	clrf	constructTxBytesOfManchesterPulses@codeBitByteIndex
+   963  0039                     L2:	
+   964  0039  3005               	movlw	5
+   965  003A  0242               	subwf	constructTxBytesOfManchesterPulses@codeBitByteIndex,w
+   966  003B  1803               	btfsc	3,0
+   967  003C  0008               	return
+   968                           
+   969                           ;txmit.c: 40: {
+   970                           ;txmit.c: 42: gKeyCodeManchester[(2u)*codeBitByteIndex] = 0x00;
+   971  003D  0842               	movf	constructTxBytesOfManchesterPulses@codeBitByteIndex,w
+   972  003E  00C0               	movwf	??_constructTxBytesOfManchesterPulses
+   973  003F  0740               	addwf	??_constructTxBytesOfManchesterPulses,w
+   974  0040  3E4E               	addlw	(low (_gKeyCodeManchester| 0))& (0+255)
+   975  0041  0084               	movwf	4
+   976  0042  0180               	clrf	0
+   977                           
+   978                           ;txmit.c: 45: for(bitIndex = 4; bitIndex <= 7; bitIndex++)
+   979  0043  3004               	movlw	4
+   980  0044  00C0               	movwf	??_constructTxBytesOfManchesterPulses
+   981  0045  0840               	movf	??_constructTxBytesOfManchesterPulses,w
+   982  0046  00C1               	movwf	constructTxBytesOfManchesterPulses@bitIndex
+   983  0047  3008               	movlw	8
+   984  0048  0241               	subwf	constructTxBytesOfManchesterPulses@bitIndex,w
+   985  0049  1803               	btfsc	3,0
+   986  004A  2878               	goto	L1
+   987  004B                     l724:	
+   988                           
+   989                           ;txmit.c: 46: {
+   990                           ;txmit.c: 48: gKeyCodeManchester[(2u)*codeBitByteIndex] <<= 2;
+   991  004B  0842               	movf	constructTxBytesOfManchesterPulses@codeBitByteIndex,w
+   992  004C  00C0               	movwf	??_constructTxBytesOfManchesterPulses
+   993  004D  0740               	addwf	??_constructTxBytesOfManchesterPulses,w
+   994  004E  3E4E               	addlw	(low (_gKeyCodeManchester| 0))& (0+255)
+   995  004F  0084               	movwf	4
+   996  0050  1003               	clrc
+   997  0051  0D80               	rlf	0,f
+   998  0052  1003               	clrc
+   999  0053  0D80               	rlf	0,f
+  1000                           
+  1001                           ;txmit.c: 50: if(((gKeyCode[codeBitByteIndex] >> bitIndex) & 0x01) == 0)
+  1002  0054  0842               	movf	constructTxBytesOfManchesterPulses@codeBitByteIndex,w
+  1003  0055  3E56               	addlw	(low (_gKeyCode| 0))& (0+255)
+  1004  0056  0084               	movwf	4
+  1005  0057  0800               	movf	0,w
+  1006  0058  00C0               	movwf	??_constructTxBytesOfManchesterPulses
+  1007  0059  0A41               	incf	constructTxBytesOfManchesterPulses@bitIndex,w
+  1008  005A  285D               	goto	u334
+  1009  005B                     u335:	
+  1010  005B  1003               	clrc
+  1011  005C  0CC0               	rrf	??_constructTxBytesOfManchesterPulses,f
+  1012  005D                     u334:	
+  1013  005D  3EFF               	addlw	-1
+  1014  005E  1D03               	skipz
+  1015  005F  285B               	goto	u335
+  1016  0060  1840               	btfsc	??_constructTxBytesOfManchesterPulses,0
+  1017  0061  2869               	goto	l728
+  1018                           
+  1019                           ;txmit.c: 51: {
+  1020                           ;txmit.c: 52: gKeyCodeManchester[(2u)*codeBitByteIndex] |= 0x02;
+  1021  0062  0842               	movf	constructTxBytesOfManchesterPulses@codeBitByteIndex,w
+  1022  0063  00C0               	movwf	??_constructTxBytesOfManchesterPulses
+  1023  0064  0740               	addwf	??_constructTxBytesOfManchesterPulses,w
+  1024  0065  3E4E               	addlw	(low (_gKeyCodeManchester| 0))& (0+255)
+  1025  0066  0084               	movwf	4
+  1026  0067  1480               	bsf	0,1
+  1027                           
+  1028                           ;txmit.c: 53: }
+  1029  0068  286F               	goto	l730
+  1030  0069                     l728:	
+  1031                           
+  1032                           ;txmit.c: 54: else
+  1033                           ;txmit.c: 55: {
+  1034                           ;txmit.c: 56: gKeyCodeManchester[(2u)*codeBitByteIndex] |= 0x01;
+  1035  0069  0842               	movf	constructTxBytesOfManchesterPulses@codeBitByteIndex,w
+  1036  006A  00C0               	movwf	??_constructTxBytesOfManchesterPulses
+  1037  006B  0740               	addwf	??_constructTxBytesOfManchesterPulses,w
+  1038  006C  3E4E               	addlw	(low (_gKeyCodeManchester| 0))& (0+255)
+  1039  006D  0084               	movwf	4
+  1040  006E  1400               	bsf	0,0
+  1041  006F                     l730:	
+  1042  006F  3001               	movlw	1
+  1043  0070  00C0               	movwf	??_constructTxBytesOfManchesterPulses
+  1044  0071  0840               	movf	??_constructTxBytesOfManchesterPulses,w
+  1045  0072  07C1               	addwf	constructTxBytesOfManchesterPulses@bitIndex,f
+  1046  0073  3008               	movlw	8
+  1047  0074  0241               	subwf	constructTxBytesOfManchesterPulses@bitIndex,w
+  1048  0075  1C03               	skipc
+  1049  0076  284B               	goto	l724
+  1050                           
+  1051                           ;txmit.c: 57: }
+  1052                           ;txmit.c: 58: }
+  1053                           ;txmit.c: 61: gKeyCodeManchester[(2u)*codeBitByteIndex + 1] = 0x00;
+  1054  0077  1403               	setc
+  1055  0078                     L1:	
+  1056  0078  0D42               	rlf	constructTxBytesOfManchesterPulses@codeBitByteIndex,w
+  1057  0079  3E4E               	addlw	(low (_gKeyCodeManchester| 0))& (0+255)
+  1058  007A  0084               	movwf	4
+  1059  007B  0180               	clrf	0
+  1060                           
+  1061                           ;txmit.c: 64: for(bitIndex = 0; bitIndex <= 3; bitIndex++)
+  1062  007C  01C1               	clrf	constructTxBytesOfManchesterPulses@bitIndex
+  1063  007D  3004               	movlw	4
+  1064  007E  0241               	subwf	constructTxBytesOfManchesterPulses@bitIndex,w
+  1065  007F  1803               	btfsc	3,0
+  1066  0080  28AA               	goto	l752
+  1067  0081                     l742:	
+  1068                           
+  1069                           ;txmit.c: 65: {
+  1070                           ;txmit.c: 67: gKeyCodeManchester[(2u)*codeBitByteIndex + 1] <<= 2;
+  1071  0081  1403               	setc
+  1072  0082  0D42               	rlf	constructTxBytesOfManchesterPulses@codeBitByteIndex,w
+  1073  0083  3E4E               	addlw	(low (_gKeyCodeManchester| 0))& (0+255)
+  1074  0084  0084               	movwf	4
+  1075  0085  1003               	clrc
+  1076  0086  0D80               	rlf	0,f
+  1077  0087  1003               	clrc
+  1078  0088  0D80               	rlf	0,f
+  1079                           
+  1080                           ;txmit.c: 69: if(((gKeyCode[codeBitByteIndex] >> bitIndex) & 0x01) == 0)
+  1081  0089  0842               	movf	constructTxBytesOfManchesterPulses@codeBitByteIndex,w
+  1082  008A  3E56               	addlw	(low (_gKeyCode| 0))& (0+255)
+  1083  008B  0084               	movwf	4
+  1084  008C  0800               	movf	0,w
+  1085  008D  00C0               	movwf	??_constructTxBytesOfManchesterPulses
+  1086  008E  0A41               	incf	constructTxBytesOfManchesterPulses@bitIndex,w
+  1087  008F  2892               	goto	u374
+  1088  0090                     u375:	
+  1089  0090  1003               	clrc
+  1090  0091  0CC0               	rrf	??_constructTxBytesOfManchesterPulses,f
+  1091  0092                     u374:	
+  1092  0092  3EFF               	addlw	-1
+  1093  0093  1D03               	skipz
+  1094  0094  2890               	goto	u375
+  1095  0095  1840               	btfsc	??_constructTxBytesOfManchesterPulses,0
+  1096  0096  289D               	goto	l746
+  1097                           
+  1098                           ;txmit.c: 70: {
+  1099                           ;txmit.c: 71: gKeyCodeManchester[(2u)*codeBitByteIndex + 1] |= 0x02;
+  1100  0097  1403               	setc
+  1101  0098  0D42               	rlf	constructTxBytesOfManchesterPulses@codeBitByteIndex,w
+  1102  0099  3E4E               	addlw	(low (_gKeyCodeManchester| 0))& (0+255)
+  1103  009A  0084               	movwf	4
+  1104  009B  1480               	bsf	0,1
+  1105                           
+  1106                           ;txmit.c: 72: }
+  1107  009C  28A2               	goto	l748
+  1108  009D                     l746:	
+  1109                           
+  1110                           ;txmit.c: 73: else
+  1111                           ;txmit.c: 74: {
+  1112                           ;txmit.c: 75: gKeyCodeManchester[(2u)*codeBitByteIndex + 1] |= 0x01;
+  1113  009D  1403               	setc
+  1114  009E  0D42               	rlf	constructTxBytesOfManchesterPulses@codeBitByteIndex,w
+  1115  009F  3E4E               	addlw	(low (_gKeyCodeManchester| 0))& (0+255)
+  1116  00A0  0084               	movwf	4
+  1117  00A1  1400               	bsf	0,0
+  1118  00A2                     l748:	
+  1119  00A2  3001               	movlw	1
+  1120  00A3  00C0               	movwf	??_constructTxBytesOfManchesterPulses
+  1121  00A4  0840               	movf	??_constructTxBytesOfManchesterPulses,w
+  1122  00A5  07C1               	addwf	constructTxBytesOfManchesterPulses@bitIndex,f
+  1123  00A6  3004               	movlw	4
+  1124  00A7  0241               	subwf	constructTxBytesOfManchesterPulses@bitIndex,w
+  1125  00A8  1C03               	skipc
+  1126  00A9  2881               	goto	l742
+  1127  00AA                     l752:	
+  1128  00AA  3001               	movlw	1
+  1129  00AB  00C0               	movwf	??_constructTxBytesOfManchesterPulses
+  1130  00AC  0840               	movf	??_constructTxBytesOfManchesterPulses,w
+  1131  00AD  07C2               	addwf	constructTxBytesOfManchesterPulses@codeBitByteIndex,f
+  1132  00AE  2839               	goto	L2
+  1133  00AF                     __end_of_constructTxBytesOfManchesterPulses:	
+  1134                           
+  1135                           	psect	text2
+  1136  0020                     __ptext2:	
+  1137 ;; *************** function _Txmt_Initialize *****************
+  1138 ;; Defined at:
+  1139 ;;		line 21 in file "txmit.c"
+  1140 ;; Parameters:    Size  Location     Type
+  1141 ;;		None
+  1142 ;; Auto vars:     Size  Location     Type
+  1143 ;;		None
+  1144 ;; Return value:  Size  Location     Type
+  1145 ;;                  1    wreg      void 
+  1146 ;; Registers used:
+  1147 ;;		wreg, status,2
+  1148 ;; Tracked objects:
+  1149 ;;		On entry : 0/0
+  1150 ;;		On exit  : 0/0
+  1151 ;;		Unchanged: 0/0
+  1152 ;; Data sizes:     COMMON   BANK0
+  1153 ;;      Params:         0       0
+  1154 ;;      Locals:         0       0
+  1155 ;;      Temps:          0       1
+  1156 ;;      Totals:         0       1
+  1157 ;;Total ram usage:        1 bytes
+  1158 ;; Hardware stack levels used:    1
+  1159 ;; This function calls:
+  1160 ;;		Nothing
+  1161 ;; This function is called by:
+  1162 ;;		_main
+  1163 ;; This function uses a non-reentrant model
+  1164 ;;
+  1165                           
+  1166                           
+  1167                           ;psect for function _Txmt_Initialize
+  1168  0020                     _Txmt_Initialize:	
+  1169                           
+  1170                           ;txmit.c: 24: gKeyCode[0] = (0x81);
+  1171                           
+  1172                           ;incstack = 0
+  1173                           ; Regs used in _Txmt_Initialize: [wreg+status,2]
+  1174  0020  3081               	movlw	129
+  1175  0021  00C0               	movwf	??_Txmt_Initialize
+  1176  0022  0840               	movf	??_Txmt_Initialize,w
+  1177  0023  00D6               	movwf	_gKeyCode
+  1178                           
+  1179                           ;txmit.c: 25: gKeyCode[1] = (0X00);
+  1180  0024  01D7               	clrf	_gKeyCode+1
+  1181                           
+  1182                           ;txmit.c: 26: gKeyCode[2] = (0x00);
+  1183  0025  01D8               	clrf	_gKeyCode+2
+  1184                           
+  1185                           ;txmit.c: 28: gKeyCode[(4u)-(1u)] = (0x55);
+  1186  0026  3055               	movlw	85
+  1187  0027  00C0               	movwf	??_Txmt_Initialize
+  1188  0028  0840               	movf	??_Txmt_Initialize,w
+  1189  0029  00D9               	movwf	_gKeyCode+3
+  1190  002A  0008               	return
+  1191  002B                     __end_of_Txmt_Initialize:	
+  1192                           
+  1193                           	psect	text3
+  1194  002B                     __ptext3:	
+  1195 ;; *************** function _Txmt_Break *****************
+  1196 ;; Defined at:
+  1197 ;;		line 82 in file "txmit.c"
+  1198 ;; Parameters:    Size  Location     Type
+  1199 ;;		None
+  1200 ;; Auto vars:     Size  Location     Type
+  1201 ;;		None
+  1202 ;; Return value:  Size  Location     Type
+  1203 ;;                  1    wreg      void 
+  1204 ;; Registers used:
+  1205 ;;		wreg
+  1206 ;; Tracked objects:
+  1207 ;;		On entry : 0/0
+  1208 ;;		On exit  : 0/0
+  1209 ;;		Unchanged: 0/0
+  1210 ;; Data sizes:     COMMON   BANK0
+  1211 ;;      Params:         0       0
+  1212 ;;      Locals:         0       0
+  1213 ;;      Temps:          0       1
+  1214 ;;      Totals:         0       1
+  1215 ;;Total ram usage:        1 bytes
+  1216 ;; Hardware stack levels used:    1
+  1217 ;; This function calls:
+  1218 ;;		Nothing
+  1219 ;; This function is called by:
+  1220 ;;		_main
+  1221 ;; This function uses a non-reentrant model
+  1222 ;;
+  1223                           
+  1224                           
+  1225                           ;psect for function _Txmt_Break
+  1226  002B                     _Txmt_Break:	
+  1227                           
+  1228                           ;txmit.c: 86: LATAbits.LATA1 = 0x00;
+  1229                           
+  1230                           ;incstack = 0
+  1231                           ; Regs used in _Txmt_Break: [wreg]
+  1232  002B  1087               	bcf	7,1	;volatile
+  1233                           
+  1234                           ;txmit.c: 88: _delay((unsigned long)((15)*((31000u)/4000.0)));
+  1235  002C  3026               	movlw	38
+  1236  002D  00C0               	movwf	??_Txmt_Break
+  1237  002E                     u697:	
+  1238  002E  0BC0               	decfsz	??_Txmt_Break,f
+  1239  002F  282E               	goto	u697
+  1240  0030  0000               	nop
+  1241                           
+  1242                           ;txmit.c: 90: LATAbits.LATA1 = 0x01;
+  1243  0031  1487               	bsf	7,1	;volatile
+  1244                           
+  1245                           ;txmit.c: 92: _delay((unsigned long)((3)*((31000u)/4000.0)));
+  1246  0032  3007               	movlw	7
+  1247  0033  00C0               	movwf	??_Txmt_Break
+  1248  0034                     u707:	
+  1249  0034  0BC0               	decfsz	??_Txmt_Break,f
+  1250  0035  2834               	goto	u707
+  1251  0036  0000               	nop
+  1252  0037  0008               	return
+  1253  0038                     __end_of_Txmt_Break:	
+  1254  007E                     btemp	set	126	;btemp
+  1255  007E                     wtemp0	set	126
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         12
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON            0      0       0
+    BANK0            62     14      26
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    _main->_constructTxBytesOfManchesterPulses
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                11    11      0    1282
+                                              3 BANK0     11    11      0
+                         _Txmt_Break
+                    _Txmt_Initialize
+ _constructTxBytesOfManchesterPulses
+ ---------------------------------------------------------------------------------
+ (1) _constructTxBytesOfManchesterPulses                   3     3      0     402
+                                              0 BANK0      3     3      0
+ ---------------------------------------------------------------------------------
+ (1) _Txmt_Initialize                                      1     1      0       0
+                                              0 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _Txmt_Break                                           1     1      0       0
+                                              0 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _Txmt_Break
+   _Txmt_Initialize
+   _constructTxBytesOfManchesterPulses
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            0      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+COMMON               0      0       0       1        0.0%
+STACK                0      0       0       2        0.0%
+BANK0               3E      E      1A       3       41.9%
+ABS                  0      0      1A       4        0.0%
+DATA                 0      0      1A       5        0.0%
+BITBANK0            3E      0       0       6        0.0%
+
+
+Microchip Technology PIC Macro Assembler V1.45 build -152302408 
+Symbol Table                                                                                   Thu Jan 24 15:38:29 2019
+
+                                       __CFG_CP$OFF 0000                                                  l41 00EC  
+                                                l42 00FC                                                  l39 00CD  
+                                                l59 01F3                                                  fsr 0004  
+                                       __CFG_LVP$ON 0000                                                 l730 006F  
+                                               l724 004B                                                 l742 0081  
+                                               l830 0115                                                 l822 010F  
+                                               l752 00AA                                                 l728 0069  
+                                               l920 01C0                                                 l912 01BA  
+                                               l904 01A3                                                 l746 009D  
+                                               l748 00A2                                                 l860 014E  
+                                               l852 0148                                                 l844 0131  
+                                               l934 01DC                                                 l838 012C  
+                                               l928 01D7                                                 l890 0187  
+                                               l882 0181                                                 l874 016A  
+                                               l868 0165                                                 l798 00DA  
+                                               l898 019E                                                 u334 005D  
+                                               u335 005B                                                 u374 0092  
+                                               u375 0090                                                 u617 00C1  
+                                               u707 0034                                                 u627 00C8  
+                                               u637 00D0                                                 u647 00EF  
+                                               u657 00F4                                                 u667 00FF  
+                                               u677 0105                                                 u687 01F6  
+                                               u697 002E                                                 fsr0 0004  
+                                               indf 0000                                        __CFG_BORV$LO 0000  
+                           __end_of_Txmt_Initialize 002B                                                _WPUA 0009  
+                                      __CFG_WRT$OFF 0000                                                _main 00AF  
+                                              btemp 007E                                                start 0000  
+        constructTxBytesOfManchesterPulses@bitIndex 0041                                       __CFG_MCLRE$ON 0000  
+                                             ?_main 0040                                               _ADCON 001F  
+                                    __CFG_BOREN$OFF 0000                                               status 0003  
+                                             wtemp0 007E                                     __initialization 01FA  
+                                      __end_of_main 01FA                                      __CFG_LPBOR$OFF 0000  
+                                            ??_main 0043                                    ?_Txmt_Initialize 0040  
+                                            _ANSELA 0008                                              _FVRCON 001D  
+                                            _OSCCON 0010                                              _WDTCON 0030  
+                                    __CFG_PWRTE$OFF 0000                             __end_of__initialization 01FE  
+                                        _Txmt_Break 002B                                          __pbssBANK0 004E  
+                                        __pmaintext 00AF                                         ?_Txmt_Break 0040  
+                                           __ptext1 0038                                             __ptext2 0020  
+                                           __ptext3 002B  constructTxBytesOfManchesterPulses@codeBitByteIndex 0042  
+                                           clrloop0 0019                                end_of_initialization 01FE  
+                                  __CFG_FOSC$INTOSC 0000                                           _TRISAbits 0006  
+                               __size_of_Txmt_Break 000D                            __size_of_Txmt_Initialize 000B  
+                               start_initialization 01FA                                           ___latbits 0000  
+                                     __pcstackBANK0 0040                                   ??_Txmt_Initialize 0040  
+                                      ??_Txmt_Break 0040                                    __CFG_WDTE$SWDTEN 0000  
+                                __end_of_Txmt_Break 0038                                            _LATAbits 0007  
+                                         clear_ram0 0018                                  _gKeyCodeManchester 004E  
+                                          _gKeyCode 0056          __end_of_constructTxBytesOfManchesterPulses 00AF  
+       __size_of_constructTxBytesOfManchesterPulses 0077                ??_constructTxBytesOfManchesterPulses 0040  
+               ?_constructTxBytesOfManchesterPulses 0040                  _constructTxBytesOfManchesterPulses 0038  
+                                   main@tempManByte 0044                                       __size_of_main 014B  
+                                        _INTCONbits 000B                                     _Txmt_Initialize 0020  
+                           main@txmtManCodeBitIndex 004D                            main@txmtManCodeByteIndex 004C  
